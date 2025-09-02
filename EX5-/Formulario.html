@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login e Cadastro</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+        }
+
+        .form-fundo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .form-login, .form-cadastro {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button.btn_1, button.btn_2 {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button.btn_1 {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        button.btn_1:hover {
+            background-color: #45A049;
+        }
+
+        button.btn_2 {
+            background-color: #1283f5;
+            color: white;
+        }
+
+        button.btn_2:hover {
+            background-color: #0066d3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-fundo">
+
+    <div class="form-login" id="formLogin">
+        <h2>Login</h2>
+        <form action="login.php" method="post">
+            <label for="emailLogin">E-mail</label>
+            <input type="email" id="emailLogin" name="email" required />
+
+            <label for="senhaLogin">Senha</label>
+            <input type="password" id="senhaLogin" name="senha" required />
+
+            <button class="btn_1" type="submit">Entrar</button>
+            <button class="btn_2" type="button" onclick="alternarFormulario()">Cadastrar-se</button>
+        </form>
+    </div>
+
+    <div class="form-cadastro" id="formCadastro" style="display: none;">
+        <h2>Cadastro</h2>
+        <form action="cadastro.php" method="post">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" required />
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="Digite o número do telefone" required />
+
+            <label for="cpf">CPF</label>
+            <input type="text" id="cpf" name="cpf" placeholder="00000000000" required />
+
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" required />
+
+            <label for="confirmaSenha">Confirmar senha</label>
+            <input type="password" id="confirmaSenha" name="confirmaSenha" required />
+
+            <button class="btn_1" type="submit">Cadastrar</button>
+            <button class="btn_2" type="button" onclick="alternarFormulario()">Fazer login</button>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    function alternarFormulario() {
+        const login = document.getElementById('formLogin');
+        const cadastro = document.getElementById('formCadastro');
+        login.style.display = login.style.display === 'none' ? 'block' : 'none';
+        cadastro.style.display = cadastro.style.display === 'none' ? 'block' : 'none';
+    }
+</script>
+
+</body>
+</html>
